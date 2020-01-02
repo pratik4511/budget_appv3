@@ -81,23 +81,23 @@ class SelectionPageState extends State<SelectionPage> {
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
+
         // backgroundColor: Colors.orange.shade500,
         body: Container(
+          width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
               gradient: LinearGradient(
             colors: [Colors.red, Colors.orange.shade500],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           )),
-          child: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
+          child: Column(
+           // crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Center(
+                child: Text(
                   " \n Select your state \n or union teritory.",
                   style: new TextStyle(
                     fontSize: 35.0,
@@ -106,41 +106,42 @@ class SelectionPageState extends State<SelectionPage> {
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(height: 30.0),
-                DropdownButton(
-                  value: _selectedState,
-                  items: _dropDownMenuItem,
-                  onChanged: onChangedDropdownItem,
-                ),
-                SizedBox(height: 20.0),
-                Text(
-                  "Selected State : ${_selectedState.name}",
-                  style: new TextStyle(
-                    color: Colors.white,
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.w300,
-                  ),
-                ),
-                // button //
-                Padding(
-                  padding: EdgeInsets.only(top: 30.0),
-                ),
+              ),
+              SizedBox(height: 35.0),
+              DropdownButton(
 
-                new FlatButton(
-                  child: Text("Next"),
+                style: TextStyle(fontSize: 20,color: Colors.black,),
+                value: _selectedState,
+                items: _dropDownMenuItem,
+                onChanged: onChangedDropdownItem,
+              ),
+              SizedBox(height: 20.0),
+              Text(
+                "Selected State : ${_selectedState.name}",
+                style: new TextStyle(
                   color: Colors.white,
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/Next');
-                  },
-                  shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadiusDirectional.circular(20.0),
-                  ),
+                  fontSize: 15.0,
+                  fontWeight: FontWeight.w300,
                 ),
-              ],
-            ),
+              ),
+              // button //
+              Padding(
+                padding: EdgeInsets.only(top: 30.0),
+              ),
+
+              new FlatButton(
+                child: Text("Next"),
+                color: Colors.white,
+                onPressed: () {
+                  Navigator.pushNamed(context, '/Next');
+                },
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadiusDirectional.circular(20.0),
+                ),
+              ),
+            ],
           ),
         ),
-      ),
-    );
+      );
   }
 }
