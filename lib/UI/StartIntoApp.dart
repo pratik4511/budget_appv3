@@ -6,9 +6,6 @@ import 'SectorIcon.dart';
 //import 'customicon.dart';
 import 'data.dart';
 
-//------------------------------------------------------------------------------------------------------ //
-// ->->->->->->->->->->->->->->->->->-> THIRD PAGE OF APPLICATION  ->->->->->->->->->->->->->->->->->->  //
-// ----------------------------------------------------------------------------------------------------- //
 class StartIntoApp extends StatefulWidget {
   @override
   _StartIntoAppState createState() => _StartIntoAppState();
@@ -37,155 +34,168 @@ class _StartIntoAppState extends State<StartIntoApp> {
       });
     });
 
-    return new Scaffold(
-      backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 12.0, right: 12.0, top: 30.0, bottom: 8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  IconButton(
-                    icon: Icon(
-                      Icons.drag_handle,
-                      color: Colors.black,
-                      size: 30.0,
-                    ),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      Icons.search,
-                      color: Colors.black,
-                      size: 30.0,
-                    ),
-                    onPressed: () {},
-                  ),
-                ],
-              ),
-            ),
+    return SafeArea(
+      //bottom: false,
+      child: new Scaffold(
+        drawer: Drawer(
+          child: Container(),
+        ),
+        appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.black,size: 25),
+          elevation: 0,
+          actions: <Widget>[IconButton(icon:Icon(Icons.search,color: Colors.black,size: 25,), onPressed: null)],
+          backgroundColor: Colors.white,centerTitle: true,
+          title: Text('Budget', style: TextStyle(color: Colors.orange,fontSize: 25),),
+        ),
+        floatingActionButton: new FlatButton(
+          child: Text(
+            "Skip",
+            style: new TextStyle(color: Colors.white),
+          ),
+          color: Colors.orange,
+          onPressed: () {
+            Navigator.pushNamed(context, '/Skip');
+          },
+          shape: new RoundedRectangleBorder(
+            borderRadius: new BorderRadiusDirectional.circular(20.0),
+          ),
+        ),
+        backgroundColor: Colors.white,
+        body: Padding(
+          padding: const EdgeInsets.only(top:15),
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+//              Padding(
+//                padding: const EdgeInsets.only(
+//                    left: 12.0, right: 12.0, top: 30.0, bottom: 8.0),
+//                child: Row(
+//                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                  children: <Widget>[
+//                    IconButton(
+//                      icon: Icon(
+//                        Icons.drag_handle,
+//                        color: Colors.black,
+//                        size: 30.0,
+//                      ),
+//                      onPressed: () {},
+//                    ),
+//                    IconButton(
+//                      icon: Icon(
+//                        Icons.search,
+//                        color: Colors.black,
+//                        size: 30.0,
+//                      ),
+//                      onPressed: () {},
+//                    ),
+//                  ],
+//                ),
+//              ),
 
-            // ======================== M I N I S T R I E S ====================== //
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    "Our Ministries.",
-                    style: new TextStyle(
-                      fontWeight: FontWeight.w300,
-                      fontSize: 30.0,
-                      color: Colors.black,
-                      fontFamily: "Calibre-Semibold",
-                      //letterSpacing: 1.0,
-                    ),
+                // ======================== M I N I S T R I E S ====================== //
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        "Our Ministries.",
+                        style: new TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 30.0,
+                          color: Colors.black,
+                          fontFamily: "Calibre-Semibold",
+                          //letterSpacing: 1.0,
+                        ),
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.filter_list,
+                          size: 12.0,
+                          color: Colors.black,
+                        ),
+                        onPressed: () {},
+                      )
+                    ],
                   ),
-                  IconButton(
-                    icon: Icon(
-                      Icons.filter_list,
-                      size: 12.0,
-                      color: Colors.black,
-                    ),
-                    onPressed: () {},
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.orange.shade500,
-                      borderRadius: BorderRadius.circular(20.20),
-                    ),
-                    child: Center(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 22.0, vertical: 10.0),
-                        child: Text(
-                          "Photos",
-                          style: new TextStyle(
-                            color: Colors.white,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.orange.shade500,
+                          borderRadius: BorderRadius.circular(20.20),
+                        ),
+                        child: Center(
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 22.0, vertical: 10.0),
+                            child: Text(
+                              "Photos",
+                              style: new TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ),
+                      SizedBox(
+                        width: 15.0,
+                      ),
+                      Text(
+                        "25 + Ministries ",
+                        style: new TextStyle(
+                          color: Colors.blueAccent,
+                        ),
+                      )
+                    ],
                   ),
-                  SizedBox(
-                    width: 15.0,
+                ),
+                Stack(
+                  children: <Widget>[
+                    CardScrollWidget(currentPage),
+                    Positioned.fill(
+                      child: PageView.builder(
+                        itemCount: images.length,
+                        controller: controller,
+                        reverse: true,
+                        itemBuilder: (context, index) {
+                          return Container();
+                        },
+                      ),
+                    )
+                  ],
+                ),
+                new Container(
+                  // AFTER SCROLL CODE WRITE HERE //
+                  padding: EdgeInsets.symmetric(horizontal: 20.20),
+                  child: new Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        " Overview.",
+                        style: new TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 30.0,
+                          color: Colors.black,
+                          fontFamily: "Calibre-Semibold",
+                          //letterSpacing: 1.0,
+                        ),
+                      ),
+                    ],
                   ),
-                  Text(
-                    "25 + Ministries ",
-                    style: new TextStyle(
-                      color: Colors.blueAccent,
-                    ),
-                  )
-                ],
-              ),
-            ),
-            Stack(
-              children: <Widget>[
-                CardScrollWidget(currentPage),
-                Positioned.fill(
-                  child: PageView.builder(
-                    itemCount: images.length,
-                    controller: controller,
-                    reverse: true,
-                    itemBuilder: (context, index) {
-                      return Container();
-                    },
+                ),
+                new Container(
+                  child: Image.asset(
+                    'images/pi_chart.png',
+                    scale: 0.8,
                   ),
-                )
+                ),
               ],
             ),
-            new Container(
-              // AFTER SCROLL CODE WRITE HERE //
-              padding: EdgeInsets.symmetric(horizontal: 20.20),
-              child: new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    " Overview.",
-                    style: new TextStyle(
-                      fontWeight: FontWeight.w300,
-                      fontSize: 30.0,
-                      color: Colors.black,
-                      fontFamily: "Calibre-Semibold",
-                      //letterSpacing: 1.0,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            new Container(
-              child: Image.asset(
-                'images/pi_chart.png',
-                scale: 0.8,
-              ),
-            ),
-            // ************ ADD NEW STACK LIST HERE after padding **********//
-
-            //h-----------------------------//
-            new FlatButton(
-              child: Text(
-                "Skip",
-                style: new TextStyle(color: Colors.white),
-              ),
-              color: Colors.orange,
-              onPressed: () {
-                Navigator.pushNamed(context, '/Skip');
-              },
-              shape: new RoundedRectangleBorder(
-                borderRadius: new BorderRadiusDirectional.circular(20.0),
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );

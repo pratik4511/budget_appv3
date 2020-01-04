@@ -12,9 +12,6 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-//------------------------------------------------------------------------------------------------------ //
-// ->->->->->->->->->->->->->->->->->-> FIRST PAGE OF APPLICATION  ->->->->->->->->->->->->->->->->->->  //
-// ----------------------------------------------------------------------------------------------------- //
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   Animation animation, delayedAnimation, muchDelayedAnimation;
@@ -24,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 10), () => print("Splash Done"));
+    Timer(Duration(seconds: 4), () => Navigator.pushReplacement(context, new MaterialPageRoute(builder: (context)=>  SelectionPage())));
 
     animationController =
         AnimationController(duration: Duration(seconds: 3), vsync: this);
@@ -96,43 +93,15 @@ class _SplashScreenState extends State<SplashScreen>
               // FOR QUOTES //
 
               Expanded(
-                flex: 2,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    CircularProgressIndicator(
-                      backgroundColor: Colors.white,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 10.0),
-                    ),
-                    Text(
-                      " \n 'Economy is idealism, \n in its most practical form.'",
-                      style: new TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.w300,
-                        fontStyle: FontStyle.normal,
-                        color: Colors.white,
-                      ),
-                    ),
-
-                    // START BUTTON //
-                    Padding(
-                      padding: EdgeInsets.only(top: 10.0),
-                    ),
-
-                    new FlatButton(
-                      child: Text("Start"),
-                      color: Colors.white,
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/Start');
-                      },
-                      shape: new RoundedRectangleBorder(
-                        borderRadius:
-                            new BorderRadiusDirectional.circular(20.0),
-                      ),
-                    ),
-                  ],
+                flex: 1,
+                child: Text(
+                  ' " Economy is idealism ,\n In its most practical form."',
+                  style: new TextStyle(
+                    fontSize: 25.0,
+                    fontWeight: FontWeight.w300,
+                    fontStyle: FontStyle.normal,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ],
